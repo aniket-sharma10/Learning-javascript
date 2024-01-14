@@ -26,5 +26,15 @@ let arr = [0, 1, 2, 3, 4, 5]
 // console.log(array.flat(2))
 // console.log(array.flat(Infinity))
 
-console.log(Array.from("aniket"))
-console.log(Array.of("aniket", 35, "fn"))
+// console.log(Array.from("aniket"))
+// console.log(Array.of("aniket", 35, "fn"))
+
+let array1 = [1, 2, 4]
+let array2 = [5, 6, 7]
+
+// resArray = array1.concat(array2)
+// console.log(resArray)
+
+// Better way of combining arrays
+// resArray = [...array1, ...array2, 88]
+// console.log(resArray)
