@@ -49,4 +49,11 @@ let student= {
 // console.log(Object.entries(student))
 
 // To check if a key exists inside a object.. it returs a boolean value
-console.log(student.hasOwnProperty('emailid'))
+// console.log(student.hasOwnProperty('emailid'))
+
+// Destructuring in objects
+const {email} = student
+console.log(email)
+// we can also give a name by ourself
+const {email: emailId} = student
+console.log(emailId)
