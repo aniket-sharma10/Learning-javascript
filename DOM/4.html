@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>fiction</li>
+    </ul>
+</body>
+<script>
+
+    function addGenre(genreName){
+        let li = document.createElement('li');
+        li.innerHTML = `${genreName}`
+        document.querySelector('ul').appendChild(li)
+    }
+    addGenre('horror')
+
+    // But the above approach is not suitable for large projects
+    // this is optimised approach
+    function addGenreOpt(genreName){
+        let li = document.createElement('li');
+        li.appendChild(document.createTextNode(genreName));
+        document.querySelector('ul').appendChild(li);
+    }
+    addGenreOpt('drama')
+    addGenreOpt('romcom')
+
+
+    // Edit existing element
+    let third = document.querySelector("li:nth-child(3)")
+    // third.innerHTML = "drama-crime"
+    // third.textContent = "drama-crime"
+    // third.appendChild(document.createTextNode('+crime'))
+    let newli = document.createElement('li')
+    newli.textContent = "drama--crime"
+    third.replaceWith(newli)
+
+    let first = document.querySelector('li:first-child')
+    first.outerHTML = "<li><b>FICTION</b</li>"
+
+
+    // Remove element
+    let last = document.querySelector('li:last-child')
+    last.remove()
+</script>
+</html>
