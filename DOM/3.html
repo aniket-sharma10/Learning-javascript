@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    let div = document.createElement('div')
+    console.log(div)
+
+    div.id = 'container'
+    div.className = 'box'
+    div.classList.add('container','clas2')
+
+    div.style.backgroundColor = 'green'
+    div.style.fontSize = '22px'
+
+    // div.innerText = 'this is div'
+    // div.innerHTML = '<b>bolded text</b>'
+    let text = document.createTextNode("Better way of adding text")
+    div.appendChild(text)
+
+    document.body.appendChild(div)
+
+</script>
+</html>
