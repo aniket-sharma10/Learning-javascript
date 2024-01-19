@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body{
+            background: #110b4d;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+        }
+        .container{
+            margin: 150px auto;
+            font-size: 28px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        #clock{
+            width: 150px;
+            height: 45px;
+            margin-top: 10px;
+            border-radius: 5px;
+            background: orange;
+            border: 1px solid orange;
+            font-size: 25px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h5>Current time is</h5>
+        <div id="clock"></div>
+    </div>
+</body>
+<script src="script.js"></script>
+</html>
