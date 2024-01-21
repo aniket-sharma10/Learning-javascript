@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Set Interval</title>
+</head>
+<body>
+    <h1>This is original heading</h1>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+</body>
+<script>
+    let startTime = function(str){
+        let date = new Date()
+        document.querySelector('h1').innerHTML = `hello ${str}, time is ${date.toLocaleTimeString()}`;   
+    };
+    
+    let startID;
+    document.querySelector('#start').addEventListener('click', function(){
+        startID = setInterval(startTime, 1000, "aniket")
+    });
+
+    document.querySelector('#stop').addEventListener('click', function(){
+        clearInterval(startID)
+    });
+</script>
+</html>
