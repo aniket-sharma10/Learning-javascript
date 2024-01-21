@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events</title>
+    <style>
+        body{
+            background: gray;
+        }
+        li{
+            width: 150px;
+            height: 70px;
+            background: aliceblue;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <ul id="parent">
+            <!-- method 1 of adding events (not preferred) -->
+            <li id="li-1" onclick="alert('method-1')">list 1</li>
+            <li id="li-2">list 2</li>
+            <li id="li-3">list 3</li>
+            <li id="li-4">list 4</li>
+            <li id="child">Child</li>
+            <li id="child2">Child 2</li>
+            <a id="link" href="www.google.com">Google</a>
+        </ul>
+    </div>
+</body>
+<script>
+
+    // Method 2 (this is also not preferred)
+    // document.getElementById('li-2').onclick = function(){
+    //     alert('method 2');
+    // };
+
+    // Method 3 using event listeners. This is preferred
+    // document.getElementById('li-3').addEventListener('click', function(){
+    //     alert('Method 3. This is preferred');
+    // })
+
+
+    // Event propagation
+
+    // Bubbling(by default third parameter is false which uses bubbling)
+    // document.getElementById('parent').addEventListener('click', function(){
+    //     console.log('parent event')
+    // })
+    // document.getElementById('child').addEventListener('click', function(){
+    //     console.log('child event');
+    // })
+
+    // Capturing (if 3rd parameter is true, then it uses capturing)
+    // document.getElementById('parent').addEventListener('click', function(){
+    //     console.log('parent event')
+    // }, true)
+    // document.getElementById('child').addEventListener('click', function(){
+    //     console.log('child event');
+    // }, true)
+
+    // Some methods with events
+    document.getElementById('child2').addEventListener('click', function(e){
+        console.log("child2 event clicked")
+        e.stopPropagation()
+    })
+
+    document.getElementById('link').addEventListener('click', function(e){
+        console.log("link event clicked")
+        e.preventDefault()
+    })
+
+    document.getElementById('parent').addEventListener('click', function(e){
+        console.log(e.target)
+        let rem = e.target
+        rem.remove()
+    })
+
+
+
+    // Things to study in mdn docs
+    // type, timestamp, defaultPrevent
+    // target, toElement, srcElement, currentTarget
+    // clientX, clientY, screenX, screenY
+    // altKey, ctrlKey, shiftKey, keyCode
+
+</script>
+</html>
