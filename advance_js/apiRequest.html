@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API request</title>
+    <style>
+        #card{
+            margin: 10px auto;
+            width: 150px;
+            height: 150px;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: #213456;
+            color: #fff;
+            display: none;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <h2>API request data</h2>
+    <button id="btn">Get details</button>
+    <div id="card"></div>
+</body>
+<script>
+    let apiURL = 'https://api.github.com/users/hiteshchoudhary';
+    let data;
+    let card = document.querySelector('#card');
+    let btn = document.querySelector('#btn')
+
+    let xhr = new XMLHttpRequest();
+    xhr.open('GET', apiURL);
+    xhr.onreadystatechange = function(){
+        console.log(xhr.readyState)
+        if(xhr.readyState === 4){
+            data = JSON.parse(this.responseText)
+            // console.log(data)
+            console.log(data.avatar_url)
+            console.log(data.followers)
+
+            // display(data)
+            btn.addEventListener('click', function(){
+                display(data)
+            })
+        }
+    }
+    xhr.send()
+
+    function display(data)
+    {
+        card.style.display = 'flex'
+
+        let img = document.createElement('img');
+        img.style.width = '100px';
+        img.src = data.avatar_url;
+
+        let followers = document.createElement('span')
+        followers.innerHTML = data.followers;
+        followers.style.fontSize = '22px'
+
+        card.appendChild(img)
+        card.appendChild(followers)
+    }
+</script>
+</html>
