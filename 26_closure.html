@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closure and lexical scoping</title>
+</head>
+<body style="background-color: gray;">
+    <button id="lime">Lime</button>
+    <button id="orange">Orange</button>
+    <button id="lightblue">Lightblue</button>
+</body>
+<script>
+
+    // Lexical scoping
+    function outer(){
+        let out = "aniket";
+        function inner(){
+            let inn = "inner variable"
+            console.log("Inner: ",out);
+        }
+        // inner function can access outer function variables but outer function cannot access inner function variables
+        // console.log("Inner: ", inn)
+        inner();
+    }
+    // outer()
+
+
+    // Closure
+    function makeFunc() {
+        const name = "Mozilla";
+        function displayName() {
+            console.log(name);
+        }
+        return displayName;
+    }
+
+    const myFunc = makeFunc();
+    myFunc();
+
+
+
+    // Closure use-case
+    function clickHandler(color){
+
+        return function(){
+            document.body.style.backgroundColor = `${color}`
+        }
+    }
+    document.querySelector('#lime').onclick = clickHandler('lime')
+    document.querySelector('#orange').onclick = clickHandler('orange')
+    document.querySelector('#lightblue').onclick = clickHandler('lightblue')
+</script>
+</html>
